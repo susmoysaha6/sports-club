@@ -1,0 +1,21 @@
+.card {
+    width: 350px;
+    height: 550px;
+    /* border: 1px solid y; */
+    margin: 20px;
+    box-shadow: 2px 2px 4px lightgray;
+    border-radius: 3px;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card-btn {
+    margin-left: 5px;
+    background-color: tomato;
+    border: none;
+    color: wheat;
+    border-radius: 5px;
+    padding: 5px 10px;
+}

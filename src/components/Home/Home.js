@@ -14,7 +14,6 @@ const Home = () => {
                 setPlayers(data?.player);
             });
     }, [search]);
-    console.log(players);
     return (
         <div>
             <div className='home-container'>
@@ -22,7 +21,7 @@ const Home = () => {
                     <input onChange={(e) => setSearch(e.target.value)} type="text" className='search-input' placeholder='Input player name here' />
                     <button className='search-btn'>Search</button>
                     <div className="players-container">
-                        <Players></Players>
+                        <Players players={players}></Players>
                     </div>
                 </div>
                 <div className="right-side">
