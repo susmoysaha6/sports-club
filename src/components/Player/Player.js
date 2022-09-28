@@ -1,5 +1,6 @@
 import React from 'react';
 import './Player.css';
+import Swal from 'sweetalert2'
 
 const Player = ({ player, cart, setCart }) => {
     const { strPlayer, idPlayer, strCutout } = player;
@@ -13,7 +14,12 @@ const Player = ({ player, cart, setCart }) => {
         if (cart?.length) {
             const isExist = cart.find(selectedProduct => selectedProduct.idPlayer === id)
             if (isExist) {
-                alert('Already Selected');
+                Swal.fire(
+                    'You Already Selected This Player',
+                    'Try Another',
+                    'failed'
+                )
+                // alert('Already Selected');
             } else {
                 setCart([...cart, info]);
             }
@@ -22,14 +28,22 @@ const Player = ({ player, cart, setCart }) => {
             setCart([info])
         }
     };
-    console.log(cart);
+    const handleBookmark = () => {
+        const info = {
+            strPlayer,
+            strCutout,
+            idPlayer,
+            price: 115,
+            bookmark: true
+        };
+    };
     return (
-        <div className='card'>
+        <div className='card' data-aos="zoom-in">
             <img className='card-img' src={strCutout} alt="" />
             <h6>{strPlayer}</h6>
             <button className='card-btn'> Details</button>
             <button onClick={() => handleAddToCart(idPlayer)} className='card-btn'>Add to cart</button>
-            <button className='card-btn'>Bookmark</button>
+            <button className='card-btn' onClick={handleBookmark}>Bookmark</button>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Players from '../Players/Players';
 import './Home.css';
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 
 const Home = () => {
     const [search, setSearch] = useState("");
@@ -20,6 +21,11 @@ const Home = () => {
         const leftPlayer = cart.filter(cartItem => cartItem.idPlayer !== id);
         setCart(leftPlayer);
         toast("You deleted a player from cart");
+        Swal.fire(
+            'Opps!',
+            'You deleted player from the cart',
+            'success'
+        );
     };
     return (
         <div>
