@@ -18,7 +18,8 @@ const Player = ({ player, cart, setCart }) => {
                     'You Already Selected This Player',
                     'Try Another',
                     'failed'
-                )
+                );
+                return;
                 // alert('Already Selected');
             } else {
                 setCart([...cart, info]);
@@ -33,9 +34,28 @@ const Player = ({ player, cart, setCart }) => {
             strPlayer,
             strCutout,
             idPlayer,
-            price: 115,
+            quantity: 1,
             bookmark: true
         };
+        const prevBookmark = localStorage.getItem('bookmark');
+        const oldBookmark = JSON.parse(prevBookmark);
+        if (oldBookmark) {
+            const isExist = oldBookmark.find(bookmarked => bookmarked.idPlayer === idPlayer);
+            if (isExist) {
+                const prevQuantity = parseFloat(isExist.quantity);
+                const newQuantity = prevQuantity + 1;
+                isExist.quantity = newQuantity;
+                localStorage.setItem('bookmark', JSON.stringify(oldBookmark));
+                return;
+            } else {
+                localStorage.setItem('bookmark', JSON.stringify([...oldBookmark, info]));
+            }
+        }
+        else {
+            localStorage.setItem('bookmark', JSON.stringify([info]));
+            console.log("nai");
+        }
+
     };
     return (
         <div className='card' data-aos="zoom-in">
