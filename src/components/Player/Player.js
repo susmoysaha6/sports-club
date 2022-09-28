@@ -53,7 +53,6 @@ const Player = ({ player, cart, setCart }) => {
         }
         else {
             localStorage.setItem('bookmark', JSON.stringify([info]));
-            console.log("nai");
         }
 
     };
