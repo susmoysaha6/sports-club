@@ -2,12 +2,12 @@ import React from 'react';
 import Player from '../Player/Player';
 import './Players.css'
 
-const Players = ({ players }) => {
+const Players = ({ players, cart, setCart }) => {
     return (
         <div className='card-conatiner'>
             {
                 players.map(player => (
-                    <Player player={player} key={player?.idPlayer}></Player>
+                    <Player player={player} key={player?.idPlayer} cart={cart} setCart={setCart}></Player>
                 ))
             }
 

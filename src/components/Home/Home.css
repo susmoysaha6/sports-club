@@ -27,3 +27,20 @@
     padding: 10px;
     margin-right: 10px;
 }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-name {
+    margin-left: 20px;
+}
+
+.delete-btn {
+    background-color: white;
+    border: none;
+    margin-left: 5px;
+    margin-top: 5px;
+}
